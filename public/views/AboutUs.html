@@ -1,0 +1,71 @@
+<!-- Carousel -->
+<div class="row">
+	 	<div class="col-xs-12" ng-controller="carousel">
+		<carousel interval="slideInterval">
+		<slide ng-repeat="slide in slides" active="slide.active">
+		<a href="{{slide.url}}">
+				<img ng-src="{{slide.image}}" style="margin:auto;" />
+		</a>
+		<div class="carousel-caption">
+				<h4>{{slide.name}}</h4>
+				<p>{{slide.text}}</p>
+		</div>
+		</slide>
+		</carousel>
+	</div> 
+</div>
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <div class="col-md-4 text-center">
+      <img class="img-circle" src="http://placehold.it/140x140">
+      <h2>我们的路程</h2>
+      <p>Our History</p>
+      <p><a class="btn btn-default" href="#/">View details »</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+      <img class="img-circle" src="http://placehold.it/140x140">
+      <h2>我们的优势</h2>
+      <p>Our Advantages</p>
+      <p><a class="btn btn-default" href="#/">View details »</a></p>
+    </div>
+    <div class="col-md-4 text-center">
+      <img class="img-circle" src="http://placehold.it/140x140">
+      <h2>我们的成果</h2>
+      <p>Our achievements</p>
+      <p><a class="btn btn-default" href="#/">View details »</a></p>
+    </div>
+  </div><!-- /.row -->
+
+
+  <!-- START THE FEATURETTES -->
+
+  <hr class="featurette-divider">
+  <div class="featurette">
+    <h2 class="featurette-heading">我们的路程<span class="text-muted"> Our History</span></h2>
+    <p class="lead"> 具体路程 balabala</p>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="featurette">
+    <h2 class="featurette-heading">我们的优势<span class="text-muted"> Our Advantages</span></h2>
+    <p class="lead">具体优势balabala</p>
+  </div>
+
+  <hr class="featurette-divider">
+  <div class="featurette">
+    <h2 class="featurette-heading">我们的成果<span class="text-muted"> Our achevements</span></h2>
+    <p class="lead">具体成果balabala</p>
+  </div>
+
+  <hr class="featurette-divider">
+
+  <!-- /END THE FEATURETTES -->
+
+
+  <!-- FOOTER -->
+  <footer>
+  </footer>
+
+</div><!-- /.container -->
