@@ -3,6 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Contacts = require('../db/Contacts');
 var Lecturer = require('../db/Lecturer');
+var Articles = require('../db/Articles');
 
 ///////////////////////
 // api for contacts  //
@@ -29,8 +30,30 @@ router.post('/contact', function(req, res, next){
     });
 });
 
+///////////////////////
+// api for lecturer  //
+///////////////////////
 router.get('/lecturer', function(req, res, next){
-    
+    Lecturer.find()
+        .exec(function(err, doc){
+        if(err){
+            res.status(500).send("Something broke!");
+        }
+            res.send(doc);
+        });
+})
+
+///////////////////////
+// api for articles  //
+///////////////////////
+router.get('/articles', function(req, res, next){
+    Articles.find()
+        .exec(function(err, doc){
+        if(err){
+            res.status(500).send("Something broke!");
+        }
+            res.send(doc);
+        });
 })
 
 module.exports = router;

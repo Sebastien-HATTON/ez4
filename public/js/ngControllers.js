@@ -35,10 +35,23 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
 .controller('AboutUsController', function($scope){
   
 })
-.controller('ArticleController', function($scope){
+.controller('ArticlesController', function($scope, $modal, $http){
+    $http.get('/api/articles').success(function(data){
+      $scope.articles = data;
+    });
+    $scope.getDetail = function(url){
+      var detailModal = $modal.open({
+      animation: true,
+      templateUrl: 'url',
+      controller: 'detailModal',
+      size: 'lg',
+      });
+    };
+})
+.controller('detailModal', function($scope){
   
 })
-.controller('LecturerController', function($scioe){
+.controller('LecturerController', function($scope){
   
 })
 ///////////////////////

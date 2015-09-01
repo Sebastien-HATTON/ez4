@@ -35,6 +35,13 @@ h1, h2, h3, h4, h5, h6 {
     color: red;
 }
 
+.card{
+	padding: 10px;
+	border: solid 1px #d9d9de;
+	border-radius: 6px;
+	line-height: 1.5;
+	margin-bottom: 10px;
+}
 
 hr.style1 {
     border: 0;

@@ -18,40 +18,65 @@
                     <div class="row gallery">
                         <hr class="style1">
                         <h4 class="subtitle">Eco Department</h4>
-                        <div class="col-md-3">
-							<a href="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1@2x.jpg">
-								<img src="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" class="img-responsive" alt="img">
-							</a>
-						</div>
+                
+                <!-- test case -->
+                <div class="col-md-3">
+				<div class="card">
+					<img class="img-circle" src="http://placehold.it/150x150">
+					<div class="row">
+						<small class="col-xs-4 text-muted text-center"></small>
+					</div>
+				<div class="row">
+					<div class="col-md-12">
+						<h3>Gary</h3>
+						<p><span class="text-muted">从来没学过eco呀</span></p>
+					</div>
+				</div>
+				</div>
+			</div>
+                        
+                        	
+        <!-- Lecturer list -->
+		<div class="row" ng-repeat="lecturer in lecturers | filter:{Dep:'Eco'}">
+			<div class="col-md-3">
+				<div class="card" ng-click="getDetail(lecturer)">
+					<img class="img-circle" src="{{lecturer.photoUrl}}">
+					<div class="row">
+						<small class="col-xs-4 text-muted text-center"></small>
+					</div>
+				<div class="row">
+					<div class="col-md-3">
+						<h3>{{lecturer.Name}}</h3>
+						<p>{{lecturer.short}}</p>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+
 					</div>
 					<div class="row gallery">
                         <hr class="style1">
                         <h4 class="subtitle">Math Department</h4>
                         <div class="col-md-3">
-							<a href="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1@2x.jpg">
-								<img src="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" class="img-responsive" alt="img">
-							</a>
+
 						</div>
 					</div>
 					<div class="row gallery">
                         <hr class="style1">
                         <h4 class="subtitle">CS Department</h4>
                         <div class="col-md-3">
-							<a href="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1@2x.jpg">
-								<img src="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" class="img-responsive" alt="img">
-							</a>
+
 						</div>
 					</div>
 					<div class="row gallery">
                         <hr class="style1">
                         <h4 class="subtitle">Sta Department</h4>
                         <div class="col-md-3">
-							<a href="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" title="This is an image title" data-lightbox-gallery="gallery1" data-lightbox-hidpi="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1@2x.jpg">
-								<img src="https://www.prepbootstrap.com/Content/images/shared/nine-stars/works/1.jpg" class="img-responsive" alt="img">
-							</a>
+
 						</div>
 					</div>
                 </div>
             </div>	
-		</div>
+        </div>
 	</section>
