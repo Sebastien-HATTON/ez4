@@ -19,10 +19,11 @@
     <script src="../js/ngControllers.js"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
 </head>
 <body>
 <div class="container">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="navController">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">Easy4.0</a>
@@ -35,11 +36,17 @@
       </div>
       <div class="navbar-right col-md-6 navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#/">About us</a></li>
-          <li><a href="#">Our service</a></li>
-          <li><a href="#/Articles">Articles</a></li>
-          <li><a href="#/ContactUs">Contact us</a></li>
-          <li><a href="#">Student Login</a></li>
+          <li ng-class="{ active: isActive('/')}"><a href="#/">About us</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="">Our service <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li ng-class="{ active: isActive('/asd')}"><a href="#/Lecturer">Our Lecturers</a></li>
+            <li ng-class="{ active: isActive('/ddd')}"><a href="#/Courses">Our Courses</a></li>
+            <li ng-class="{ active: isActive('/ccc')}"><a href="#/SignUp">Sign up</a></li>
+            <li ng-class="{ active: isActive('/bbb')}"><a href="#/Routine">Routine</a></li>
+          </ul>
+          <li ng-class="{ active: isActive('/Articles')}"><a href="#/Articles">Articles</a></li>
+          <li ng-class="{ active: isActive('/ContactUs')}"><a href="#/ContactUs">Contact us</a></li>
+          <li ng-class="{ active: isActive('/StudentLogin')}"><a href="#">Student Login</a></li>
         </ul>
       </div>
     </div>

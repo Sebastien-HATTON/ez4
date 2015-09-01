@@ -1,4 +1,13 @@
 angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
+//////////////
+// nav ctrl //
+//////////////
+.controller('navController', function($scope, $location){
+  $scope.isActive = function (viewLocation) {
+     var active = (viewLocation === $location.url());
+     return active;
+  };
+})
 ///////////////////////
 //carousel Countroler//
 ///////////////////////
@@ -29,8 +38,14 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
 .controller('ArticleController', function($scope){
   
 })
+.controller('LecturerController', function($scioe){
+  
+})
+///////////////////////
+// Contact From Ctrl //
+///////////////////////
 .controller('ContactUsController', function($scope, $http){
-  $scope.user = {
+  $scope.contact = {
     fname : '',
     lname : '',
     email : '',
@@ -39,11 +54,11 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
   };
   $scope.submit = function(){
     var tmp = {
-    	"FirstName": $scope.user.fname,
-    	"LastName": $scope.user.lname,
-    	"EmailAddress": $scope.user.email,
-    	"Phone": $scope.user.phone,
-    	"Content": $scope.user.content
+    	"FirstName": $scope.contact.fname,
+    	"LastName": $scope.contact.lname,
+    	"EmailAddress": $scope.contact.email,
+    	"Phone": $scope.contact.phone,
+    	"Content": $scope.contact.content
     };
     $http.post('/api/contact', tmp).success(function(data){
       if(data.state == "success"){

@@ -13,8 +13,11 @@ mongoose.connect('mongodb://csc309:banana@ds047722.mongolab.com:47722/heroku_v51
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'public/views'));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/api', api);
+
 
 /* setups above*/
 app.get('/', function(req, res){

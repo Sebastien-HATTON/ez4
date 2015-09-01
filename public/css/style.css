@@ -10,5 +10,42 @@
 }
 
 .content {
-	padding-top: 70px;
+	padding-top: 45px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 30px;
+  text-transform: uppercase;
+  font-family: Montserrat,sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.gallery {
+    padding: 10px;
+    margin: 10px;
+}
+
+.bg-grey {
+    background-color: #f8f8f8;
+}
+
+.subtitle {
+    text-align: left;
+    color: red;
+}
+
+
+hr.style1 {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #333, #ccc);
+}
+
+hr.style2 {
+    border: 0;
+    height: 2px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
