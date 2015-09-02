@@ -10,7 +10,7 @@
 }
 
 .content {
-	padding-top: 45px;
+	padding-top: 60px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,6 +41,7 @@ h1, h2, h3, h4, h5, h6 {
 	border-radius: 6px;
 	line-height: 1.5;
 	margin-bottom: 10px;
+	height: 350px;
 }
 
 hr.style1 {

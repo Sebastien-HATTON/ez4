@@ -32,9 +32,17 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
       url: "#/"
     }];
 })
-.controller('AboutUsController', function($scope){
-  
+
+.controller('AboutUsController', function($scope, $modal){
+  $scope.modalClick = function(url){
+    var aboutUsModal = $modal.open({
+      animation: true,
+      templateUrl: url,
+      size: 'lg'
+    });
+  };
 })
+
 .controller('ArticlesController', function($scope, $modal, $http){
     $http.get('/api/articles').success(function(data){
       $scope.articles = data;
@@ -42,17 +50,24 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
     $scope.getDetail = function(url){
       var detailModal = $modal.open({
       animation: true,
-      templateUrl: 'url',
+      templateUrl: '#/',
       controller: 'detailModal',
       size: 'lg',
       });
     };
 })
-.controller('detailModal', function($scope){
-  
+.controller('detailModal', function($scope, $modalInstance){
+  $scope.cancel = function() {
+    $modalInstance.dismiss('cancel');
+  };
 })
-.controller('LecturerController', function($scope){
-  
+///////////////////
+// Lecturer ctrl //
+///////////////////
+.controller('LecturerController', function($scope, $http){
+  $http.get('/api/lecturer').success(function(data){
+    $scope.lecturers = data;
+  });
 })
 ///////////////////////
 // Contact From Ctrl //

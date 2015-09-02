@@ -17,7 +17,7 @@ angular.module('APP', ['ngRoute', 'APP.ngControllers', 'ui.bootstrap'])
       controller: 'ContactUsController',
       disableCache: true
     })
-    .when('/Lecturer', {
+    .when('/Mentors', {
       templateUrl: '../views/Lecturer.html',
       controller: 'LecturerController',
       disableCache: true

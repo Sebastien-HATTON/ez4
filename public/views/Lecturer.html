@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div>
-					<h2>Our Lecturers</h2>
+					<h2>Our Mentors</h2>
 					<p>我们的导师团队</p>
 					</div>
 				</div>
@@ -13,41 +13,20 @@
 		</div>
 		<div class="container">
 
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="row gallery">
-                        <hr class="style1">
-                        <h4 class="subtitle">Eco Department</h4>
-                
-                <!-- test case -->
-                <div class="col-md-3">
-				<div class="card">
-					<img class="img-circle" src="http://placehold.it/150x150">
-					<div class="row">
-						<small class="col-xs-4 text-muted text-center"></small>
-					</div>
-				<div class="row">
-					<div class="col-md-12">
-						<h3>Gary</h3>
-						<p><span class="text-muted">从来没学过eco呀</span></p>
-					</div>
-				</div>
-				</div>
-			</div>
-                        
-                        	
+                   
         <!-- Lecturer list -->
-		<div class="row" ng-repeat="lecturer in lecturers | filter:{Dep:'Eco'}">
-			<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-3"  ng-repeat="lecturer in lecturers">
 				<div class="card" ng-click="getDetail(lecturer)">
 					<img class="img-circle" src="{{lecturer.photoUrl}}">
 					<div class="row">
 						<small class="col-xs-4 text-muted text-center"></small>
 					</div>
 				<div class="row">
-					<div class="col-md-3">
+					<div class="col-md-12">
 						<h3>{{lecturer.Name}}</h3>
-						<p>{{lecturer.short}}</p>
+						<p>{{lecturer.Title}}</p>
+						<p>{{lecturer.Dep}}</p>
 					</div>
 				</div>
 				</div>
@@ -55,27 +34,8 @@
 		</div>
 
 					</div>
-					<div class="row gallery">
-                        <hr class="style1">
-                        <h4 class="subtitle">Math Department</h4>
-                        <div class="col-md-3">
 
-						</div>
-					</div>
-					<div class="row gallery">
-                        <hr class="style1">
-                        <h4 class="subtitle">CS Department</h4>
-                        <div class="col-md-3">
 
-						</div>
-					</div>
-					<div class="row gallery">
-                        <hr class="style1">
-                        <h4 class="subtitle">Sta Department</h4>
-                        <div class="col-md-3">
-
-						</div>
-					</div>
                 </div>
             </div>	
         </div>
