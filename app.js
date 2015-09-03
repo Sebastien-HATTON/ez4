@@ -24,6 +24,10 @@ app.get('/', function(req, res){
     res.render('index');
 });
 
+app.get('/:largecode*', function(req, res){
+    res.render('index');
+});
+
 
 var port = process.env.PORT || 1337;
 

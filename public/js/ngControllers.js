@@ -51,10 +51,10 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
     $http.get('/api/news').success(function(data){
       $scope.news = data;
     });
-    $scope.getDetail = function(url){
+    $scope.test = function(url){
       var detailModal = $modal.open({
       animation: true,
-      templateUrl: '#/',
+      templateUrl: 'https://mp.weixin.qq.com/s?__biz=MjM5NzIyNzU1MQ==&mid=208052723&idx=1&sn=c088033e98ef615bf6d645ecfd9ffc76#rd',
       controller: 'detailModal',
       size: 'lg',
       });
