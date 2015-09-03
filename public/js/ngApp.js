@@ -7,9 +7,9 @@ angular.module('APP', ['ngRoute', 'APP.ngControllers', 'ui.bootstrap'])
       controller: 'AboutUsController',
       disableCache: true
     })
-    .when('/Articles',{
-      templateUrl: '../views/Articles.html',
-      controller: 'ArticlesController',
+    .when('/News',{
+      templateUrl: '../views/News.html',
+      controller: 'NewsController',
       disableCache: true
     })
     .when('/ContactUs',{
@@ -18,8 +18,13 @@ angular.module('APP', ['ngRoute', 'APP.ngControllers', 'ui.bootstrap'])
       disableCache: true
     })
     .when('/Mentors', {
-      templateUrl: '../views/Lecturer.html',
-      controller: 'LecturerController',
+      templateUrl: '../views/Mentors.html',
+      controller: 'MentorsController',
+      disableCache: true
+    })
+    .when('/Courses', {
+      templateUrl: '../views/Course.html',
+      controller: 'CourseController',
       disableCache: true
     });
     }

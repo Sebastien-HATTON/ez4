@@ -32,7 +32,9 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
       url: "#/"
     }];
 })
-
+//////////////////
+// AboutUs ctrl //
+//////////////////
 .controller('AboutUsController', function($scope, $modal){
   $scope.modalClick = function(url){
     var aboutUsModal = $modal.open({
@@ -42,10 +44,12 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
     });
   };
 })
-
-.controller('ArticlesController', function($scope, $modal, $http){
-    $http.get('/api/articles').success(function(data){
-      $scope.articles = data;
+///////////////
+// News ctrl //
+///////////////
+.controller('NewsController', function($scope, $modal, $http){
+    $http.get('/api/news').success(function(data){
+      $scope.news = data;
     });
     $scope.getDetail = function(url){
       var detailModal = $modal.open({
@@ -62,12 +66,31 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
   };
 })
 ///////////////////
-// Lecturer ctrl //
+// Mentor ctrl //
 ///////////////////
-.controller('LecturerController', function($scope, $http){
-  $http.get('/api/lecturer').success(function(data){
-    $scope.lecturers = data;
+.controller('MentorsController', function($scope, $http, $modal){
+  // query getting all mentor
+  $http.get('/api/mentors').success(function(data){
+    $scope.mentors = data;
   });
+  
+  // modal function
+  $scope.getDetail = function(mentor){
+      var detailModal = $modal.open({
+      animation: true,
+      templateUrl: '/views/MentorsModal.html',
+      controller: 'MentorsModal',
+      size: 'md',
+      resolve: {
+        "mentor" : function(){
+          return mentor
+        }
+      }
+      });
+  };
+})
+.controller('MentorsModal', function($scope, $modalInstance, mentor){
+  $scope.mentor = mentor;
 })
 ///////////////////////
 // Contact From Ctrl //
@@ -97,4 +120,77 @@ angular.module('APP.ngControllers', ['ngRoute', 'ui.bootstrap'])
       }
     });
   };
+})
+/////////////////
+// Course ctrl //
+/////////////////
+.controller('CourseController', function($scope, $http){
+  // set up variables
+  $scope.inputCourse = "";
+  $scope.search = { "Code" : ""};
+  $scope.signup = {
+	"name": "",
+	"faculty": "",
+	"weChat": "",
+	"email": "",
+	"phone": "",
+	"selected": [],
+	"comment": ""
+  };
+  
+  // content of alert.
+  $scope.alert = {
+    type:"",
+    msg: ""
+  };
+  
+  $http.get('/api/courses').success(function(data){
+    $scope.courses = data;
+  });
+  
+  $scope.searchCourse = function(){
+    $scope.search.Code = $scope.inputCourse;
+  };
+  
+  $scope.addCourse = function(code){
+    if($scope.signup.selected.indexOf(code) === -1){
+      $scope.signup.selected.push(code);
+    }
+  };
+  
+  $scope.deleteCourse = function(code){
+    $scope.selected.pop($scope.signup.selected.indexOf(code));
+  };
+  
+  $scope.closeAlert = function(){
+    $scope.alert.msg = "";
+  };
+  
+  $scope.submit = function(){
+      var tmp = {
+      	"Name": $scope.signup.name,
+      	"Faculty": $scope.signup.faculty,
+      	"WeChat": $scope.signup.wechat,
+      	"Email": $scope.signup.email,
+      	"Ceil": $scope.signup.phone,
+      	"Courses": $scope.signup.selected,
+      	"Comments": $scope.signup.comment
+      };
+      if(!tmp.Name || !tmp.Email || !tmp.Courses || !tmp.Faculty || !tmp.Ceil || !tmp.WeChat){
+            $scope.alert.type = "danger";
+            $scope.alert.msg = "Please fill all blanks!"
+      }
+      else {
+        $http.post('/api/signup', tmp).success(function(data){
+          if(data.state == "success"){
+            $scope.alert.type = "success";
+            $scope.alert.msg = "Thanks for choosing Easy4.0!"
+          }
+          else{
+            $scope.alert.type = "danger";
+            $scope.alert.msg = "Oh snap! Something wrong happens!"
+          }
+      });
+      }
+  }
 })

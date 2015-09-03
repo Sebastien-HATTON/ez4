@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ArticlesSchema = new Schema({
+var NewsSchema = new Schema({
 	"Title": {type: String},
 	"Author": {type: String},
 	"Time": {type: Date},
 	"Url": {type: String}
 });
 
-var Articles = mongoose.model('Articles', ArticlesSchema, "Articles");
-module.exports = Articles;
+var News = mongoose.model('News', NewsSchema, "News");
+module.exports = News;

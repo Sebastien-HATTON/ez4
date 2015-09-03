@@ -1,0 +1,211 @@
+<div class="container">
+  <!-- Intro -->
+ <div class="hidden-xs col-md-3 card" style="height:200px">
+     aa
+ </div>
+  <div class="hidden-xs col-md-3 card" style="height:200px">
+     bb
+ </div>
+  <div class="hidden-xs col-md-3 card" style="height:200px">
+     cc
+ </div>
+  <div class="hidden-xs col-md-3 card" style="height:200px">
+     dd
+ </div>
+ 
+ <!-- Search Bar -->
+ 	<div class="row">
+        <div class="col-md-6">
+            <form ng-submit="searchCourse()" id="custom-search-input">
+                <div class="input-group col-md-12">
+                    <input type="text" ng-model="inputCourse" class="form-control input-lg" placeholder="Search Your Course" />
+                    <span class="input-group-btn">
+                        <button  ng-click="searchCourse()" ng-submit="searchCourse()" class="btn btn-info btn-lg" type="submit">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                </div>
+            </form>
+        </div>
+	</div>
+
+    <!--Course accordions-->
+    <!-- ECO -->
+    <div id="Eco">
+    <h2  ng-show="(courses | filter:{Dept:'ECO'} | filter:search).length > 0"> Economics</h2>
+    <accordion>
+        <accordion-group ng-repeat="course in courses | filter:{Dept:'ECO'} | filter:search">
+          <accordion-heading>
+            {{course.Code}}
+          </accordion-heading>
+          <p>Mentor: {{course.Mentor}}</p>
+          <p>Time and Location:
+            <span ng-show="course.Times.length==0">
+              TBA
+            </span>
+          </p>
+          <p ng-repeat="time in course.Times">
+              {{time}}
+          </p>
+          <button ng-click="addCourse(course.Code)">Add course to cart</button>
+        </accordion-group>
+    </accordion>
+    </div>
+    <!--Math-->
+    <div id="Math">
+    <h2 ng-show="(courses | filter:{Dept:'MAT'} | filter:search).length > 0"> Math</h2>
+    <accordion>
+        <accordion-group ng-repeat="course in courses | filter:{Dept:'MAT'} | filter:search">
+          <accordion-heading>
+            {{course.Code}}
+          </accordion-heading>
+          <p>Mentor: {{course.Mentor}}</p>
+          <p>Time and Location:
+            <span ng-show="course.Times.length==0">
+              TBA
+            </span>
+            </p>
+          <p ng-repeat="time in course.Times">
+              {{time}}
+          </p>
+          <button ng-click="addCourse(course.Code)">Add course to cart</button>
+        </accordion-group>
+    </accordion>
+    </div>
+    <!--Sta-->
+    <div id="Statistic">
+    <h2 ng-show="(courses | filter:{Dept:'STA'} | filter:search).length > 0"> Statistic</h2>
+    <accordion>
+        <accordion-group ng-repeat="course in courses | filter:{Dept:'STA'} | filter:search">
+          <accordion-heading>
+            {{course.Code}}
+          </accordion-heading>
+          <p>Mentor: {{course.Mentor}}</p>
+          <p>Time and Location:
+          <span ng-show="course.Times.length==0">
+              TBA
+            </span>
+          </p>
+          <p ng-repeat="time in course.Times">
+              {{time}}
+          </p>
+          <button ng-click="addCourse(course.Code)">Add course to cart</button>
+        </accordion-group>
+    </accordion>
+    </div>
+    <!--Sta-->
+    <div id="rsm">
+    <h2 ng-show="(courses | filter:{Dept:'RSM'} | filter:search).length > 0 ">Commerce</h2>
+    <accordion>
+        <accordion-group ng-repeat="course in courses | filter:{Dept:'RSM'} | filter:search">
+          <accordion-heading>
+            {{course.Code}}
+          </accordion-heading>
+          <p>Mentor: {{course.Mentor}}</p>
+          <p>Time and Location:
+          <span ng-show="course.Times.length==0">
+              TBA
+            </span>
+          </p>
+          <p ng-repeat="time in course.Times">
+              {{time}}
+          </p>
+          <button ng-click="addCourse(course.Code)">Add course to cart</button>
+        </accordion-group>
+    </accordion>
+    </div>
+    <!--csc-->
+    <div id="CSC">
+    <h2 ng-show="(courses | filter:{Dept:'CSC'} | filter:search).length > 0">Computer Science</h2>
+    <accordion>
+        <accordion-group ng-repeat="course in courses | filter:{Dept:'CSC'} | filter:search">
+          <accordion-heading>
+            {{course.Code}}
+          </accordion-heading>
+          <p>Mentor: {{course.Mentor}}</p>
+          <p>Time and Location:
+          <span ng-show="course.Times.length==0">
+              TBA
+            </span>
+          </p>
+          <p ng-repeat="time in course.Times">
+              {{time}}
+          </p>
+          <button ng-click="addCourse(course.Code)">Add course to cart</button>
+        </accordion-group>
+    </accordion>
+    </div>
+    
+    <!--SignUp Sheet-->
+    <div class="col-xs-12 row">
+        <div class="well well-sm">
+            <form class="form-horizontal" ng-submit="submit()">
+                <fieldset>
+                    <legend class="text-center formheader">报名链接</legend>
+                    <div class="form-group">
+                        <alert ng-show="alert.msg.length>0" class="col-xs-8 col-xs-push-3" type="{{alert.type}}" close="closeAlert()">{{alert.msg}}</alert>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-check-square-o formbigicon"></i></span>
+                        <div class="col-xs-8">
+                        <p ng-show="signup.selected.length===0"> No course selected yet!</p>
+                        <div ng-repeat="course in signup.selected">
+                          <button class="col-xs-12 col-md-3 btn btn-primary" ng-click="deleteCourse(course)">
+                            <p><i class="fa fa-times-circle formbigicon"></i>{{course}}</p>
+                          </button>
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-user formbigicon"></i></span>
+                        <div class="col-xs-8">
+                            <input id="fname" name="name" type="text" ng-model="signup.name" placeholder="Name" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-graduation-cap formbigicon"></i></span>
+                        <div class="col-xs-8">
+                            <input id="faculty" name="faculty" type="text" ng-model="signup.faculty" placeholder="Faculty" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-weixin formbigicon"></i></span>
+                        <div class="col-xs-8">
+                            <input id="email" name="email" type="text" ng-model="signup.wechat" placeholder="Wechat" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-envelope-o formbigicon"></i></span>
+                        <div class="col-xs-8">
+                            <input id="email" name="email" type="text" ng-model="signup.email" placeholder="Email Address" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-phone-square formbigicon"></i></span>
+                        <div class="col-xs-8">
+                            <input id="phone" name="phone" type="text" ng-model="signup.phone" placeholder="Phone" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="col-xs-1 col-xs-offset-2 text-center"><i class="fa fa-pencil-square-o formbigicon"></i></span>
+                        <div class="col-xs-8">
+                            <textarea class="form-control" id="message" name="message" ng-model="signup.comment" placeholder="Comments & Suggestions (optional)" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-xs-12 text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

@@ -14,19 +14,19 @@
 		<div class="container">
 
                    
-        <!-- Lecturer list -->
+        <!-- Mentor list -->
 		<div class="row">
-			<div class="col-md-3"  ng-repeat="lecturer in lecturers">
-				<div class="card" ng-click="getDetail(lecturer)">
-					<img class="img-circle" src="{{lecturer.photoUrl}}">
+			<div class="col-md-3 pt-hover"  ng-repeat="mentor in mentors | orderBy:'Rank'" ng-click="getDetail(mentor)">
+				<div class="card">
+					<img class="img-circle" src="{{mentor.photoUrl}}">
 					<div class="row">
 						<small class="col-xs-4 text-muted text-center"></small>
 					</div>
 				<div class="row">
 					<div class="col-md-12">
-						<h3>{{lecturer.Name}}</h3>
-						<p>{{lecturer.Title}}</p>
-						<p>{{lecturer.Dep}}</p>
+						<h3>{{mentor.Name}}</h3>
+						<p>{{mentor.Title}}</p>
+						<p>{{mentor.Dep}}</p>
 					</div>
 				</div>
 				</div>

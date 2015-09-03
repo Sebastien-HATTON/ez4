@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var LecturerSchema = new Schema({
+var MentorsSchema = new Schema({
 	"Name": {type: String},
 	"Title": {type: String},
 	"Dep": {type: String},
@@ -10,8 +10,9 @@ var LecturerSchema = new Schema({
 	"s3": {type: String},
 	"long": {type: String},
 	"photoUrl": {type: String},
+	"BpUrl": {type: String},
 	"rank": {type: Number}
 });
 
-var Lecturer = mongoose.model('Lecturer', LecturerSchema, "Lecturer");
-module.exports = Lecturer;
+var Mentors = mongoose.model('Mentor', MentorsSchema, "Mentor");
+module.exports = Mentors;
