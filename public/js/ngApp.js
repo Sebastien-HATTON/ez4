@@ -1,6 +1,6 @@
 angular.module('APP', ['ngRoute', 'APP.ngControllers', 'ui.bootstrap'])
 
-.config(function($routeProvider){
+.config(function($routeProvider, $locationProvider){
     $routeProvider
     .when('/', {
       templateUrl: '../views/AboutUs.html',
@@ -26,6 +26,11 @@ angular.module('APP', ['ngRoute', 'APP.ngControllers', 'ui.bootstrap'])
       templateUrl: '../views/Course.html',
       controller: 'CourseController',
       disableCache: true
-    });
+    })
+    .otherwise({
+        redirectTo: '/'
+      });
+      
+    $locationProvider.html5Mode(true);
     }
 );
